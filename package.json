@@ -9,6 +9,11 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+    "vite": {
+    "base": "/wwt-React_js/"  
+  },
+  "homepage": "https://username.github.io/wwt-React_js",
+
   "dependencies": {
     "@tailwindcss/vite": "^4.1.13",
     "react": "^19.1.1",
