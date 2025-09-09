@@ -1,0 +1,1 @@
+run JSON server  json-server --watch filterData.json --port 2500

@@ -1,0 +1,36 @@
+name: Deploy React/Vite App to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # workflow запускается при пуше в ветку main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Скачиваем репозиторий
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2. Устанавливаем Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      # 3. Устанавливаем зависимости через npm
+      - name: Install dependencies
+        run: npm install
+
+      # 4. Собираем проект
+      - name: Build project
+        run: npm run build
+
+      # 5. Деплой на GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist  # для Vite, для CRA — ./build
