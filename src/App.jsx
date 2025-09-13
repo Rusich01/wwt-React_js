@@ -23,7 +23,7 @@ function App() {
         <h1 className="text-6xl text-gray-600 mb-12">{t("header_h1")}</h1>
 
         <button
-          className="cursor-pointer border border-black p-2 text-gray-600"
+          className="cursor-pointer border border-black p-2 text-gray-600 rounded-[10px]"
           onClick={() => setModal((prev) => !prev)}
         >
           {t("open_modal")}
@@ -38,25 +38,29 @@ function App() {
         target="_blank"
         href="https://github.com/Rusich01/wwt-React_js.git"
       >
-        Link project
+        {t("link project")}
       </a>
-      <div className="absolute top-0.5 right-5 ">
-        <button
-          className="m-0.5 cursor-pointer"
+      <div className="absolute top-0.5 right-5 flex ">
+        <img
           disabled={i18n.language === LOCALS.UK}
           onClick={() => {
             i18n.changeLanguage(LOCALS.UK);
           }}
-        >
-          Урк
-        </button>
-        <button
-          className="m-0.5 cursor-pointer"
+          className="w-8 mr-4  cursor-pointer"
+          src="https://www.svgrepo.com/show/405641/flag-for-flag-ukraine.svg"
+          alt="flagUK"
+        />
+
+        <button></button>
+        <img
           disabled={i18n.language === LOCALS.EN}
-          onClick={() => i18n.changeLanguage(LOCALS.EN)}
-        >
-          Eng
-        </button>
+          onClick={() => {
+            i18n.changeLanguage(LOCALS.EN);
+          }}
+          className="w-8 mr-4  cursor-pointer"
+          src="https://www.svgrepo.com/show/405643/flag-for-flag-united-kingdom.svg"
+          alt="flagEN"
+        />
       </div>
     </div>
   );

@@ -3,10 +3,12 @@ import Input from "../components/Input";
 import useStore from "../store/CategoryStore";
 import { useEffect, useState } from "react";
 import ModalWindow from "../components/ModalWindow";
-import { t } from "i18next";
+// import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 
 const Main = ({ closeModal }) => {
   const [finalModal, setFinalModal] = useState(false);
+  const { t } = useTranslation();
 
   const {
     dataItems,
@@ -76,9 +78,9 @@ const Main = ({ closeModal }) => {
             >
               {/* Header */}
               <header className="flex items-center justify-between p-4 border-b">
-                <h2 className="text-xl font-semibold">Filter</h2>
+                <h2 className=" text-xl font-semibold">{t("filter")}</h2>
                 <button
-                  className="text-gray-500 hover:text-gray-700"
+                  className="text-gray-500 hover:text-gray-700 cursor-pointer"
                   onClick={() => closeModal((prev) => !prev)}
                 >
                   ✕
@@ -88,12 +90,10 @@ const Main = ({ closeModal }) => {
               <main className="p-6 space-y-8">
                 {dataItems.map((cat) => (
                   <section key={cat.id}>
-                    <h3 className="font-medium mb-3">
-                      {t[cat.name] || cat.name}
-                    </h3>
+                    <h3 className="font-medium mb-3">{t(cat.name)}</h3>
                     <div className="grid grid-cols-3 gap-2">
                       {cat.options?.map((opt) => (
-                        <Label key={opt.id} labelText={opt.name}>
+                        <Label key={opt.id} labelText={t(opt.name)}>
                           <Input
                             inputType="checkbox"
                             inputId={opt.id}
@@ -113,15 +113,15 @@ const Main = ({ closeModal }) => {
               <footer className="flex items-center justify-between p-4 border-t">
                 <button
                   onClick={cleanChecked}
-                  className="text-sm text-gray-600 hover:underline"
+                  className="text-sm text-gray-600 hover:underline cursor-pointer"
                 >
-                  Clear all filters
+                  {t("clear")}
                 </button>
                 <button
                   onClick={() => setFinalModal(true)}
-                  className="px-6 py-2 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600"
+                  className="cursor-pointer px-6 py-2 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600"
                 >
-                  Apply
+                  {t("apply")}
                 </button>
               </footer>
             </div>
