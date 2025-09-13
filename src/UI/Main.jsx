@@ -3,6 +3,7 @@ import Input from "../components/Input";
 import useStore from "../store/CategoryStore";
 import { useEffect, useState } from "react";
 import ModalWindow from "../components/ModalWindow";
+import { t } from "i18next";
 
 const Main = ({ closeModal }) => {
   const [finalModal, setFinalModal] = useState(false);
@@ -61,7 +62,7 @@ const Main = ({ closeModal }) => {
 
       {loading ? (
         <p className="z-70 text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  ">
-          Loading ...
+          {t("Loading")}...
         </p>
       ) : (
         <div>
@@ -87,7 +88,9 @@ const Main = ({ closeModal }) => {
               <main className="p-6 space-y-8">
                 {dataItems.map((cat) => (
                   <section key={cat.id}>
-                    <h3 className="font-medium mb-3">{cat.name}</h3>
+                    <h3 className="font-medium mb-3">
+                      {t[cat.name] || cat.name}
+                    </h3>
                     <div className="grid grid-cols-3 gap-2">
                       {cat.options?.map((opt) => (
                         <Label key={opt.id} labelText={opt.name}>

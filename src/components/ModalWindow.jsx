@@ -2,8 +2,8 @@ import Button from "./Button";
 
 const ModalWindow = ({ setFinalModal, closeAllWindow }) => {
   return (
-    <div className="z-70 w-1/2 h-[20%] border border-black rounded-[10px] p-[15px] text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-orange-500 text-white font-extrabold tracking-[0.5px]">
-      <p> Modal Window</p>
+    <div className="z-70 w-1/2 h-[25%] border border-black rounded-[10px] p-[15px] text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-orange-500 text-white font-extrabold tracking-[0.5px]">
+      <p> save</p>
       <div className="mt-[10%] flex justify-between">
         <Button
           onClick={closeAllWindow}
