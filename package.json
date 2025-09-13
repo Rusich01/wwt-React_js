@@ -4,20 +4,25 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "vite",
     "dev": "vite",
     "build": "vite build",
+    "format:check:all": "prettier --check .",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint:all": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
-    "vite": {
-    "base": "/wwt-React_js/"  
+  "vite": {
+    "base": "/wwt-React_js/"
   },
-  "homepage": "https://username.github.io/wwt-React_js",
-
+  "homepage": "https://wwt-React_js.github.io/wwt-React_js",
   "dependencies": {
     "@tailwindcss/vite": "^4.1.13",
+    "i18next": "^25.5.2",
+    "i18next-browser-languagedetector": "^8.2.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-i18next": "^15.7.3",
     "zustand": "^5.0.8"
   },
   "devDependencies": {

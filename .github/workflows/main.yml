@@ -1,0 +1,51 @@
+name: wwt-React_js
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+      # 1. Проверяем репозиторий
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # 2. Устанавливаем Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # 3. Устанавливаем зависимости через npm
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. Сборка проекта
+      - name: Build project
+        run: npm run build
+
+      # 5. Проверка форматирования
+      - name: Check code format
+        run: npm run format:check:all
+
+      # 6. ESLint
+      - name: Run ESLint
+        run: npm run lint:all
+
+      # 7. Деплой на GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
