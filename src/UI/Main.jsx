@@ -58,12 +58,13 @@ const Main = ({ closeModal }) => {
           closeAllWindow={closeAllWindow}
         />
       )}
+
       {loading ? (
-        <div className="flex justify-center items-center h-40">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-500"></div>
-        </div>
+        <p className="z-70 text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  ">
+          Loading ...
+        </p>
       ) : (
-        <div className="main">
+        <div>
           <div className=" fixed inset-0 flex items-center justify-center bg-black/50 z-50">
             <div
               className={
