@@ -42,7 +42,7 @@ const Main = ({ closeModal }) => {
 
     if (exists) {
       setSelectCategory(
-        selectCategory.filter((item) => item.id !== selectedOption.id)
+        selectCategory.filter((item) => item.id !== selectedOption.id),
       );
     } else {
       setSelectCategory([...selectCategory, selectedOption]);
@@ -98,7 +98,7 @@ const Main = ({ closeModal }) => {
                             inputType="checkbox"
                             inputId={opt.id}
                             checked={selectCategory.some(
-                              (item) => item.id === opt.id
+                              (item) => item.id === opt.id,
                             )}
                             onChange={handleCheckboxChange}
                           />
