@@ -11,7 +11,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "lint:all": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "predeploy": "npm run build",
+    "predeploy": "vite build",
     "deploy": "gh-pages -d dist"
   },
   "vite": {
